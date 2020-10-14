@@ -6,7 +6,12 @@ function DirectoryMenu() {
     const [section, setSection] = useState([
         { title: 'vases', imageUrl: 'h', id: 1 },
         { title: 'miscellaneous', imageUrl: 'h', id: 2 },
-        { title: 'bowls', imageUrl: 'h', id: 3 },
+        {
+            title: 'bowls',
+            imageUrl:
+                'https://github.com/mariaozamiz/gallery/blob/main/src/images/bowl_mariaozamiz.jpg?raw=true',
+            id: 3,
+        },
         { title: 'home', imageUrl: 'h', id: 4 },
         { title: 'tableware', imageUrl: 'h', id: 5 },
     ]);
