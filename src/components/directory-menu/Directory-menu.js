@@ -4,7 +4,12 @@ import './directory-menu.scss';
 
 function DirectoryMenu() {
     const [section, setSection] = useState([
-        { title: 'vases', imageUrl: 'h', id: 1 },
+        {
+            title: 'vases',
+            imageUrl:
+                'https://github.com/mariaozamiz/gallery/blob/main/src/images/vases_mariaozamiz.jpg?raw=true',
+            id: 1,
+        },
         { title: 'miscellaneous', imageUrl: 'h', id: 2 },
         {
             title: 'bowls',
