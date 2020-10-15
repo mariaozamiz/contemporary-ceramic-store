@@ -17,8 +17,14 @@ function DirectoryMenu() {
                 'https://github.com/mariaozamiz/gallery/blob/main/src/images/bowl_mariaozamiz.jpg?raw=true',
             id: 3,
         },
-        { title: 'home', imageUrl: 'h', id: 4 },
-        { title: 'tableware', imageUrl: 'h', id: 5 },
+        { title: 'homeware', imageUrl: 'h', size: 'large', id: 4 },
+        {
+            title: 'tableware',
+            imageUrl:
+                'https://github.com/mariaozamiz/gallery/blob/main/src/images/tableware_mariaozamiz.jpg?raw=true',
+            size: 'large',
+            id: 5,
+        },
     ]);
 
     const sections = section.map((section) => {
@@ -27,6 +33,7 @@ function DirectoryMenu() {
                 key={section.id}
                 title={section.title}
                 imageUrl={section.imageUrl}
+                imageSize={section.size}
                 id={section.id}
             />
         );
