@@ -1,11 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Homepage from './pages/homepage/Homepage.js';
-import VasesPage from './pages/vasesPage/VasesPage.js';
-import MiscellaneousPage from './pages/MiscellaneousPage/MiscellaneousPage.js';
-import BowlsPage from './pages/bowlsPage/BowlsPage.js';
-import HomewarePage from './pages/homewarePage/HomewarePage.js';
-import TablewarePage from './pages/tablewarePage/TablewarePage.js';
+import Homepage from './pages/homepage/Homepage';
+import VasesPage from './pages/vasesPage/VasesPage';
+import MiscellaneousPage from './pages/MiscellaneousPage/MiscellaneousPage';
+import BowlsPage from './pages/bowlsPage/BowlsPage';
+import HomewarePage from './pages/homewarePage/HomewarePage';
+import TablewarePage from './pages/tablewarePage/TablewarePage';
+import ShopPage from './pages/shopPage/ShopPage';
 
 import './app.css';
 
@@ -14,6 +15,7 @@ function App() {
         <div className="App">
             <Switch>
                 <Route exact path="/" component={Homepage} />
+                <Route path="/shop" component={ShopPage} />
                 <Route path="/vases" component={VasesPage} />
                 <Route path="/miscellaneous" component={MiscellaneousPage} />
                 <Route path="/bowls" component={BowlsPage} />
