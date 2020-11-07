@@ -8,7 +8,7 @@ import HomewarePage from './pages/homewarePage/HomewarePage';
 import TablewarePage from './pages/tablewarePage/TablewarePage';
 import ShopPage from './pages/shopPage/ShopPage';
 import Header from './components/header/Header';
-
+import Registration from './components/registration/Registration';
 import './app.css';
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
                 <Route path="/bowls" component={BowlsPage} />
                 <Route path="/homeware" component={HomewarePage} />
                 <Route path="/tableware" component={TablewarePage} />
+                <Route path="/signin" component={Registration} />
             </Switch>
         </div>
     );
