@@ -18,7 +18,7 @@ function CollectionItem({ id, title, author, price, imageUrl, authorUrl }) {
                         className="author"
                     >{` by ${author}`}</a>
                 </div>
-                <span className="price">{price}</span>
+                <span className="price">{`${price}€`}</span>
             </div>
         </div>
     );

@@ -7,12 +7,14 @@ import BowlsPage from './pages/bowlsPage/BowlsPage';
 import HomewarePage from './pages/homewarePage/HomewarePage';
 import TablewarePage from './pages/tablewarePage/TablewarePage';
 import ShopPage from './pages/shopPage/ShopPage';
+import Header from './components/header/Header';
 
 import './app.css';
 
 function App() {
     return (
         <div className="App">
+            <Header />
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/shop" component={ShopPage} />
