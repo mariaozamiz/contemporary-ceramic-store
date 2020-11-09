@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FormInput from '../form-input/Form-input';
 import Button from '../button/Button';
 import './sign-in.scss';
+import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 function SignIn() {
     const [signin, setSignin] = useState({
@@ -45,6 +46,7 @@ function SignIn() {
                 />
 
                 <Button type="submit">Sign in</Button>
+                <Button onClick={signInWithGoogle}>Sign in with Google</Button>
             </form>
         </div>
     );
