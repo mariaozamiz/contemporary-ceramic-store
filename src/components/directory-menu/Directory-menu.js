@@ -7,21 +7,32 @@ function DirectoryMenu() {
         {
             title: 'vases',
             imageUrl:
-                'https://github.com/mariaozamiz/gallery/blob/main/src/images/vases_mariaozamiz.jpg?raw=true',
+                'https://github.com/mariaozamiz/gallery/blob/main/public/images/vases.jpeg?raw=true',
             id: 1,
         },
-        { title: 'miscellaneous', imageUrl: 'h', id: 2 },
+        {
+            title: 'pots',
+            imageUrl:
+                'https://github.com/mariaozamiz/gallery/blob/main/public/images/pots.jpeg?raw=true',
+            id: 2,
+        },
         {
             title: 'bowls',
             imageUrl:
-                'https://github.com/mariaozamiz/gallery/blob/main/src/images/bowl_mariaozamiz.jpg?raw=true',
+                'https://github.com/mariaozamiz/gallery/blob/main/public/images/bowls.jpg?raw=true',
             id: 3,
         },
-        { title: 'homeware', imageUrl: 'h', size: 'large', id: 4 },
+        {
+            title: 'home decor',
+            imageUrl:
+                'https://github.com/mariaozamiz/gallery/blob/main/public/images/home-decor.jpg?raw=true',
+            size: 'large',
+            id: 4,
+        },
         {
             title: 'tableware',
             imageUrl:
-                'https://github.com/mariaozamiz/gallery/blob/main/src/images/tableware_mariaozamiz.jpg?raw=true',
+                'https://github.com/mariaozamiz/gallery/blob/main/public/images/tableware.jpg?raw=true',
             size: 'large',
             id: 5,
         },

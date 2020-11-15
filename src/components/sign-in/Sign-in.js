@@ -17,9 +17,7 @@ function SignIn() {
 
     const handleChange = (ev) => {
         const { value, name } = ev.target;
-        console.log('vou cambiar o estado con isto:', { [name]: value });
         setSignin({ ...signin, [name]: value });
-        console.log('resultado:', signin);
     };
 
     return (

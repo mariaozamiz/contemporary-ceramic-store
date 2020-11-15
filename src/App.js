@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from './pages/homepage/Homepage';
 import VasesPage from './pages/vasesPage/VasesPage';
@@ -10,11 +10,26 @@ import ShopPage from './pages/shopPage/ShopPage';
 import Header from './components/header/Header';
 import Registration from './components/registration/Registration';
 import './app.css';
+import { auth } from './firebase/firebase.utils';
 
 function App() {
+    const [user, setUser] = useState({
+        currentUser: null,
+    });
+
+    const unsubscribeFromAuth = () => null;
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            setUser({ currentUser: user });
+            console.log(user);
+        });
+        unsubscribeFromAuth();
+    }, []);
+
     return (
         <div className="App">
-            <Header />
+            <Header currentUser={user.currentUser} />
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/shop" component={ShopPage} />

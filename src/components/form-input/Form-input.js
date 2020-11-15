@@ -2,7 +2,6 @@ import React from 'react';
 import './form-input.scss';
 
 function FormInput({ handleChange, label, ...otherProps }) {
-    console.log('outras props', otherProps);
     return (
         <div className="group">
             <input
