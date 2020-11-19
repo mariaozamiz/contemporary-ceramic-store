@@ -10,7 +10,7 @@ import ShopPage from './pages/shopPage/ShopPage';
 import Header from './components/header/Header';
 import Registration from './components/registration/Registration';
 import './app.css';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 function App() {
     const [user, setUser] = useState({
@@ -20,9 +20,20 @@ function App() {
     const unsubscribeFromAuth = () => null;
 
     useEffect(() => {
-        auth.onAuthStateChanged((user) => {
-            setUser({ currentUser: user });
-            console.log(user);
+        auth.onAuthStateChanged(async (userAuth) => {
+            if (userAuth) {
+                const userRef = await createUserProfileDocument(userAuth);
+                userRef.onSnapshot((snapShot) => {
+                    setUser({
+                        currentUser: {
+                            id: snapShot.id,
+                            ...snapShot.data(),
+                        },
+                    });
+                    console.log('estado', user);
+                });
+            }
+            setUser({ currentUser: userAuth });
         });
         unsubscribeFromAuth();
     }, []);
@@ -45,3 +56,11 @@ function App() {
 }
 
 export default App;
+
+// useEffect(() => {
+//     auth.onAuthStateChanged((user) => {
+//         setUser({ currentUser: user });
+//         console.log(user);
+//     });
+//     unsubscribeFromAuth();
+// }, []);
