@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from './pages/homepage/Homepage';
 import VasesPage from './pages/vasesPage/VasesPage';
@@ -13,34 +13,31 @@ import './app.css';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 function App() {
-    const [user, setUser] = useState({
-        currentUser: null,
-    });
+    const [user, setUser] = useState({});
 
-    const unsubscribeFromAuth = () => null;
+    const unsubscribeFromAuth = useRef(null);
 
     useEffect(() => {
-        auth.onAuthStateChanged(async (userAuth) => {
-            if (userAuth) {
-                const userRef = await createUserProfileDocument(userAuth);
-                userRef.onSnapshot((snapShot) => {
-                    setUser({
-                        currentUser: {
+        unsubscribeFromAuth.current = auth.onAuthStateChanged(
+            async (userAuth) => {
+                if (userAuth) {
+                    const userRef = await createUserProfileDocument(userAuth);
+                    userRef.onSnapshot((snapShot) => {
+                        setUser({
                             id: snapShot.id,
                             ...snapShot.data(),
-                        },
+                        });
                     });
-                    console.log('estado', user);
-                });
+                }
+                setUser(userAuth);
             }
-            setUser({ currentUser: userAuth });
-        });
-        unsubscribeFromAuth();
+        );
+        return unsubscribeFromAuth.current;
     }, []);
 
     return (
         <div className="App">
-            <Header currentUser={user.currentUser} />
+            <Header currentUser={user} />
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/shop" component={ShopPage} />
@@ -56,11 +53,3 @@ function App() {
 }
 
 export default App;
-
-// useEffect(() => {
-//     auth.onAuthStateChanged((user) => {
-//         setUser({ currentUser: user });
-//         console.log(user);
-//     });
-//     unsubscribeFromAuth();
-// }, []);
