@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Homepage from './pages/homepage/Homepage';
@@ -47,14 +47,28 @@ function App(props) {
                 <Route path="/bowls" component={BowlsPage} />
                 <Route path="/homeware" component={HomewarePage} />
                 <Route path="/tableware" component={TablewarePage} />
-                <Route path="/signin" component={Registration} />
+                <Route
+                    exact
+                    path="/signin"
+                    render={() =>
+                        props.currentUser ? (
+                            <Redirect to="/" />
+                        ) : (
+                            <Registration />
+                        )
+                    }
+                />
             </Switch>
         </div>
     );
 }
 
+const mapStateToProps = ({ user }) => ({
+    currentUser: user.currentUser,
+});
+
 const mapDispatchToProps = (dispatch) => ({
     setCurrentUser: (user) => dispatch(setCurrentUser(user)),
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
