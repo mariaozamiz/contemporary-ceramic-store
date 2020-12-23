@@ -12,6 +12,8 @@ import BowlsPage from './pages/bowlsPage/BowlsPage';
 import HomewarePage from './pages/homewarePage/HomewarePage';
 import TablewarePage from './pages/tablewarePage/TablewarePage';
 import ShopPage from './pages/shopPage/ShopPage';
+import CheckoutPage from './pages/checkoutPage/CheckoutPage';
+
 import Header from './components/header/Header';
 import Registration from './components/registration/Registration';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -44,6 +46,7 @@ function App(props) {
             <Switch>
                 <Route exact path="/" component={Homepage} />
                 <Route path="/shop" component={ShopPage} />
+                <Route exact path="/checkout" component={CheckoutPage} />
                 <Route path="/vases" component={VasesPage} />
                 <Route path="/miscellaneous" component={MiscellaneousPage} />
                 <Route path="/bowls" component={BowlsPage} />
