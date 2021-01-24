@@ -374,7 +374,7 @@
     {
         "id": 5,
         "title": "Home Decor",
-        "routeName": "home-decor",
+        "routeName": "homedecor",
         "items": [
             {
                 "id": 30,

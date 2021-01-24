@@ -6,11 +6,6 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
 
 import Homepage from './pages/homepage/Homepage';
-import VasesPage from './pages/vasesPage/VasesPage';
-import MiscellaneousPage from './pages/MiscellaneousPage/MiscellaneousPage';
-import BowlsPage from './pages/bowlsPage/BowlsPage';
-import HomewarePage from './pages/homewarePage/HomewarePage';
-import TablewarePage from './pages/tablewarePage/TablewarePage';
 import ShopPage from './pages/shopPage/ShopPage';
 import CheckoutPage from './pages/checkoutPage/CheckoutPage';
 
@@ -47,11 +42,6 @@ function App(props) {
                 <Route exact path="/" component={Homepage} />
                 <Route path="/shop" component={ShopPage} />
                 <Route exact path="/checkout" component={CheckoutPage} />
-                <Route path="/vases" component={VasesPage} />
-                <Route path="/miscellaneous" component={MiscellaneousPage} />
-                <Route path="/bowls" component={BowlsPage} />
-                <Route path="/homeware" component={HomewarePage} />
-                <Route path="/tableware" component={TablewarePage} />
                 <Route
                     exact
                     path="/signin"
