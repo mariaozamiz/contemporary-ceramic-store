@@ -7,41 +7,47 @@ import {
 } from '../../redux/cart/cart.selectors';
 import CheckoutItem from '../../components/checkout-item/Checkout-item';
 import StripeCheckoutButton from '../../components/stripe-button/Stripe-button';
-import './checkoutpage.scss';
+import {
+    CheckoutPageContainer,
+    CheckoutHeaderContainer,
+    HeaderBlockContainer,
+    TotalContainer,
+    WarningContainer,
+} from './checkoutPage.styles';
 
 function CheckoutPage({ cartItems, total }) {
     return (
-        <div className="checkout-page">
-            <div className="checkout-header">
-                <div className="header-block">
+        <CheckoutPageContainer>
+            <CheckoutHeaderContainer>
+                <HeaderBlockContainer>
                     <span>Product</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Description</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Quantity</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Price</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlockContainer>
+                <HeaderBlockContainer>
                     <span>Remove</span>
-                </div>
-            </div>
+                </HeaderBlockContainer>
+            </CheckoutHeaderContainer>
             {cartItems.map((cartItem) => (
                 <CheckoutItem key={cartItem.id} cartItem={cartItem} />
             ))}
             <div className="total">
-                <span>TOTAL: ${total}</span>
+                <TotalContainer>TOTAL: {total}€</TotalContainer>
             </div>
-            <div className="test-warning">
+            <WarningContainer>
                 *Please use the following test credit card for payments*
                 <br />
                 4242 4242 4242 4242 - Exp: 01/22 - CVV: 123
-            </div>
+            </WarningContainer>
             <StripeCheckoutButton price={total} />
-        </div>
+        </CheckoutPageContainer>
     );
 }
 
